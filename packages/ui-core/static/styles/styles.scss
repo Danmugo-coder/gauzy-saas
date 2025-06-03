@@ -1,0 +1,57 @@
+@use 'fonts/google-fonts';
+
+// framework component themes (styles tied to theme variables)
+@use '@nebular/theme/styles/globals' as nb-theme-globals;
+@use '@nebular/auth/styles/globals' as nb-auth-globals;
+
+// themes - our custom or/and out of the box themes
+@forward 'themes';
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/grid';
+
+// install swiper.js
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+
+@import './spinner'; // loading spinner
+@import './chat-woot'; // chat woot widget
+
+@import './material/angular-material';
+
+// loading progress bar theme
+@import './pace.theme';
+
+@import './layout';
+@import './overrides';
+@import './material/material-overrides';
+@import './gauzy/gauzy-overrides';
+
+@import './site-menu.scss';
+
+@import './includes/fullcalendar';
+@import './includes/tabset';
+@import './includes/ng-select';
+@import './includes/ng5-slider';
+@import './includes/dialog';
+@import './includes/scroll';
+
+// install the framework and custom global styles
+@include nb-install() {
+  @include angular-material();
+
+  // framework global styles
+  @include nb-theme-globals.nb-theme-global();
+  @include nb-auth-globals.nb-auth-global();
+
+  @include ngx-layout();
+  // loading progress bar
+  @include ngx-pace-theme();
+
+  @include nb-overrides();
+  @include material-overrides();
+  @include gauzy-overrides();
+}

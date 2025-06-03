@@ -1,0 +1,51 @@
+<label class="label" *ngIf="label">{{ label | translate }}</label>
+
+<!-- Single Select -->
+<ng-container *ngIf="!multiple; else multipleSelect">
+	<ng-select
+		#select
+		[addTag]="(hasAddTeam$ | async) ? createNew : null"
+		[multiple]="false"
+		[clearable]="isClearable()"
+		[disabled]="disabled"
+		[items]="teams"
+		[(ngModel)]="organizationTeamId"
+		[placeholder]="placeholder || 'FORM.PLACEHOLDERS.ALL_TEAMS' | translate"
+		[addTagText]="'FORM.PLACEHOLDERS.ADD_TEAM' | translate"
+		bindValue="id"
+		bindLabel="name"
+		appendTo="body"
+		fullWidth
+		(change)="selectTeam($event); select.blur()"
+		(clear)="clearSelection(); select.blur()"
+	>
+		<ng-container *ngIf="shortened">
+			<ng-template ng-option-tmp let-item="item">
+				<img *ngIf="item.logo" [src]="item.logo" width="20px" height="20px" />
+				<span>{{ item.name }}</span>
+			</ng-template>
+			<ng-template ng-label-tmp let-item="item">
+				<div class="selector-template">
+					<img *ngIf="item.logo" [src]="item.logo" width="20px" height="20px" />
+					<span>{{ getShortenedName(item?.name) }}</span>
+				</div>
+			</ng-template>
+		</ng-container>
+	</ng-select>
+</ng-container>
+
+<!-- Multiple Select -->
+<ng-template #multipleSelect>
+	<nb-select
+		class="multiple-select"
+		[disabled]="disabled"
+		[multiple]="true"
+		[(selected)]="organizationTeamId"
+		[placeholder]="placeholder || 'FORM.PLACEHOLDERS.ALL_TEAMS' | translate"
+		fullWidth
+	>
+		<nb-option *ngFor="let team of teams" [value]="team.id">
+			{{ team.name }}
+		</nb-option>
+	</nb-select>
+</ng-template>

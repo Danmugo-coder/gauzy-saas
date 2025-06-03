@@ -1,0 +1,16 @@
+{
+	"extends": "../../tsconfig.json",
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "es2020",
+		"downlevelIteration": true,
+		"useDefineForClassFields": false
+	},
+	"angularCompilerOptions": {
+		"fullTemplateTypeCheck": false,
+		"strictTemplates": false,
+		"strictInjectionParameters": false
+	},
+	"include": ["**/*.ts", "**/workers/*.js"],
+	"exclude": ["jest.config.ts"]
+}

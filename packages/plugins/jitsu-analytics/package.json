@@ -1,0 +1,58 @@
+{
+	"name": "@gauzy/plugin-jitsu-analytics",
+	"version": "0.1.0",
+	"description": "Ever Gauzy Platform Jitsu Analytics Plugin",
+	"author": {
+		"name": "Ever Co. LTD",
+		"email": "ever@ever.co",
+		"url": "https://ever.co"
+	},
+	"license": "AGPL-3.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy",
+		"directory": "packages/plugins/jitsu-analytics"
+	},
+	"bugs": {
+		"url": "https://github.com/ever-co/ever-gauzy/issues"
+	},
+	"homepage": "https://ever.co",
+	"private": true,
+	"type": "commonjs",
+	"main": "./src/index.js",
+	"typings": "./src/index.d.ts",
+	"scripts": {
+		"lib:build": "yarn nx build plugin-jitsu-analytics",
+		"lib:build:prod": "yarn nx build plugin-jitsu-analytics",
+		"lib:watch": "yarn nx build plugin-jitsu-analytics --watch"
+	},
+	"dependencies": {
+		"@gauzy/config": "^0.1.0",
+		"@gauzy/core": "^0.1.0",
+		"@gauzy/plugin": "^0.1.0",
+		"@jitsu/js": "^1.10.0",
+		"@nestjs/common": "^11.1.0",
+		"chalk": "^4.1.0",
+		"node-fetch": "^2.6.7",
+		"tslib": "^2.6.2",
+		"typeorm": "^0.3.24"
+	},
+	"devDependencies": {
+		"@types/jest": "29.5.14",
+		"@types/node": "^20.14.9",
+		"typescript": "^5.8.3"
+	},
+	"keywords": [
+		"gauzy",
+		"plugin",
+		"analytics",
+		"jitsu",
+		"ever",
+		"platform"
+	],
+	"engines": {
+		"node": ">=20.11.1",
+		"yarn": ">=1.22.19"
+	},
+	"sideEffects": false
+}

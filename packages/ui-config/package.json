@@ -1,0 +1,52 @@
+{
+	"name": "@gauzy/ui-config",
+	"version": "0.1.0",
+	"description": "A configuration library for the Gauzy framework, providing environment settings and configurations to be shared across various Angular applications within the Gauzy ecosystem.",
+	"author": {
+		"name": "Ever Co. LTD",
+		"email": "ever@ever.co",
+		"url": "https://ever.co"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ever-co/ever-gauzy",
+		"directory": "packages/ui-config"
+	},
+	"bugs": {
+		"url": "https://github.com/ever-co/ever-gauzy/issues"
+	},
+	"homepage": "https://ever.co",
+	"license": "AGPL-3.0",
+	"private": true,
+	"scripts": {
+		"lib:build": "yarn nx build ui-config --configuration=development",
+		"lib:build:prod": "yarn nx build ui-config --configuration=production",
+		"lib:watch": "yarn nx build ui-config --watch --configuration=development"
+	},
+	"peerDependencies": {
+		"@angular/common": "^19.2.0",
+		"@angular/core": "^19.2.0"
+	},
+	"dependencies": {
+		"tslib": "^2.6.2"
+	},
+	"devDependencies": {
+		"@types/jest": "29.5.14",
+		"@types/node": "^20.14.9",
+		"cross-env": "^7.0.3",
+		"jest-preset-angular": "14.5.5"
+	},
+	"keywords": [
+		"gauzy",
+		"angular",
+		"configuration",
+		"environment",
+		"settings",
+		"library"
+	],
+	"engines": {
+		"node": ">=20.11.1",
+		"yarn": ">=1.22.19"
+	},
+	"sideEffects": false
+}
